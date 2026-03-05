@@ -1,40 +1,64 @@
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-
-.page {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  height: 100vh;
-}
-
-.side {
-  background-color: #AC703B;
-}
-
-.center {
-  background-color: #EFCEA8;
-}
-
-.logo {
-  width: 600px;
-  height: auto;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-.register {
-  background-color: #a19e9c;
- }
-
-
-
-
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+ 
+  .page {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    height: 100vh;
+  }
   
+  .side {
+    background-color: #AC703B;
+  }
+  
+  .left {
+    background-color: #EFCEA8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .container img {
+    width: 600px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .container h2 {
+    margin-bottom: 10px;
+  }
+  
+  .form {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+  }
+  
+
+  .btn {
+    margin-top: 40px;
+    width: 250px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .btn:hover {
+    filter: brightness(0.9);
+    transform: scale(1.05);
+  }
