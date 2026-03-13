@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../css/navbar.css'
-import logo from '../assets/logo.png'
 import NavBar from '../components/NavBar'
 import Card from '../components/Card'
 
@@ -11,6 +10,9 @@ export default function Home() {
     const navigate = useNavigate()
     const [user, setUser] = useState(null)
     const [errorUser, setErrorUser] = useState('')
+
+    const [books, setBooks] = useState([])
+
 
     //  console.log(errorUser)
     //console.log(user)
@@ -25,6 +27,8 @@ export default function Home() {
             setUser(data)
         }
         load()
+
+        fetch("http://localhost:3000/book/cardBooks").then(res => res.json()).then(data => setBooks(data))  
     }, [])
 
     async function onLogout() {
@@ -42,9 +46,17 @@ export default function Home() {
             {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
             <div style={{ display: 'flex', gap: '20px' }}>
-                <div style={{ flex: 1, backgroundColor: '#f0e5d8', padding: '10px', borderRadius: '6px', margin: '10px' }}>
-                    <Card image={logo}/>
+                <div style={{ flex: 1, backgroundColor: '#f0e5d8', padding: '10px', borderRadius: '6px', margin: '10px' }}> 
                     {/* Ide jöhet a bal oldali tartalom */}
+                    {books.map(book => (
+                        <Card
+                            key={book.book_id}
+                            image={`http://127.0.0.1:3000${book.cover}`}
+                            title={book.title}
+                            author={book.author}
+                            ratings={book.ratings}
+                        />
+                    ))}
                 </div>
                 <div style={{ flex: 1, backgroundColor: '#f0e5d8', padding: '10px', borderRadius: '6px', margin: '10px' }}>
                     {/* Ide jöhet a jobb oldali tartalom */}
