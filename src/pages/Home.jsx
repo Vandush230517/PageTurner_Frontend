@@ -51,7 +51,7 @@ export default function Home() {
                     {books.map(book => (
                         <Card
                             key={book.book_id}
-                            image={`http://127.0.0.1:3000${book.cover}`}
+                            image={`http://127.0.0.1:3000/${book.cover}`}
                             title={book.title}
                             author={book.author}
                             ratings={book.ratings}
