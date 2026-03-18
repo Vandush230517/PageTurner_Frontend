@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../css/navbar.css'
 import NavBar from '../components/NavBar'
 import Card from '../components/Card'
 
@@ -10,32 +9,27 @@ export default function Home() {
     const navigate = useNavigate()
     const [user, setUser] = useState(null)
     const [errorUser, setErrorUser] = useState('')
-
-    const [books, setBooks] = useState([])
-
-
-    //  console.log(errorUser)
-    //console.log(user)
+      
+    const [randomBooks, setRandomBooks] = useState([]) 
+    const [userRatedBooks, setUserRatedBooks] = useState([])
 
     useEffect(() => {
-        async function load() {
+        async function loadUser() {
             const data = await whoAmI()
-            // console.log(data)
-            if (data.error) {
-                setErrorUser(data.error)
-            }
+            if (data.error) setErrorUser(data.error)
             setUser(data)
         }
-        load()
+        loadUser()
 
-        fetch("http://localhost:3000/book/cardBooks").then(res => res.json()).then(data => setBooks(data))  
+        fetch("http://localhost:3000/book/randomBooks").then(res => res.json()).then(data => setRandomBooks(data))
+        fetch("http://localhost:3000/book/userRatedBooks", {
+            credentials: 'include'
+          }).then(res => res.json()).then(data => setUserRatedBooks(data))
     }, [])
 
     async function onLogout() {
         const data = await logout()
-        if (data?.error) {
-            setErrorUser(data.error)
-        }
+        if (data?.error) setErrorUser(data.error)
         setUser(null)
         navigate('/')
     }
@@ -45,12 +39,22 @@ export default function Home() {
             <NavBar user={user} onLogout={onLogout} />
             {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
-            <div style={{ display: 'flex', gap: '20px' }}>
-                <div style={{ flex: 1, backgroundColor: '#f0e5d8', padding: '10px', borderRadius: '6px', margin: '10px' }}> 
-                    {/* Ide jöhet a bal oldali tartalom */}
-                    {books.map(book => (
+            <div
+                className="d-flex justify-content-center m-5 align-items-start"
+                style={{ gap: '400px' }}
+            >
+
+                {/* BAL OLDAL */}
+                <div
+                    className="p-3 rounded"
+                    style={{ backgroundColor: '#f0e5d8', width: 'fit-content' }}
+                >
+                    <h4 style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: 'bold' }}>
+                        Könyvek:
+                    </h4>
+                     {randomBooks.map((book, index) => (
                         <Card
-                            key={book.book_id}
+                            key={`${book.book_id}-${index}`}
                             image={`http://127.0.0.1:3000/${book.cover}`}
                             title={book.title}
                             author={book.author}
@@ -58,11 +62,27 @@ export default function Home() {
                         />
                     ))}
                 </div>
-                <div style={{ flex: 1, backgroundColor: '#f0e5d8', padding: '10px', borderRadius: '6px', margin: '10px' }}>
-                    {/* Ide jöhet a jobb oldali tartalom */}
+
+                {/* JOBB OLDAL */}
+                <div
+                    className="p-3 rounded"
+                    style={{ backgroundColor: '#f0e5d8', width: 'fit-content' }}
+                >
+                     <h4 style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: 'bold' }}>
+                        Értékelt könyveim:
+                    </h4>
+                  {userRatedBooks.map((book, index) => (
+                        <Card
+                            key={`${book.book_id}-${index}`}
+                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            title={book.title}
+                            author={book.author}
+                            ratings={book.ratings}
+                        />
+                    ))}
                 </div>
+
             </div>
         </div>
-
     )
 }
