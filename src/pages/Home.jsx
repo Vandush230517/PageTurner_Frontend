@@ -35,7 +35,7 @@ export default function Home() {
     }
 
     return (
-        <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh' }}>
+        <div style={{ backgroundColor: '#EFCEA8'}}>
             <NavBar user={user} onLogout={onLogout} />
             {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
