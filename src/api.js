@@ -62,3 +62,17 @@ export async function logout() {
    }
 
 }
+
+export async function getAllUsers() {
+    const res = await fetch(`${BACKEND_URL}/admin/allUser`, {
+        method: 'GET',
+        credentials: 'include'
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error}
+    }
+
+    return await res.json()
+}

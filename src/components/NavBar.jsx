@@ -7,6 +7,7 @@ export default function NavBar({ user, onLogout }) {
   const isAdmin = user?.role === 'admin'
 
   return (
+    
     <div className="container-fluid px-4" style={{ backgroundColor: '#AC703B', height: 100 }}>
     <div className="d-flex align-items-center justify-content-between h-100 px-3">
 
