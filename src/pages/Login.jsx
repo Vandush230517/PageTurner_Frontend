@@ -8,8 +8,9 @@ import { login } from '../api'
 
 export default function Login() {
   const navigate = useNavigate()
-  const [email, setEmail] = useState("")
-  const [psw, setPsw] = useState("")
+
+  const [email, setEmail] =useState('')
+  const [psw, setPsw] = useState('')
 
   const [hiba, setHiba] = useState('')
   const [uzenet, setUzenet] = useState('')
@@ -25,12 +26,14 @@ export default function Login() {
       const data = await login(email,psw)
       if (data.error) {
         setHiba(data.error)
+        return
       }
       setUzenet(data.message)
-      setTimeout(() => navigate('/'), 1000)
+      setTimeout(() => navigate('/home'), 1000)
+      
     }
     catch (err) {
-      console.log(err);
+     // console.log(err);
       setHiba('Nem sikerult kapcsolodni a backendhez')
     }
   }
@@ -59,7 +62,7 @@ export default function Login() {
           </div>
           <div className="text-center mt-3">
                 
-                <Link to='/'className="text-dark text-decoration-none">Vissza a fooldalra</Link>
+                <Link to='/home'className="text-dark text-decoration-none">Vissza a fooldalra</Link>
             
             </div>
             <div className="text-center mt-2">

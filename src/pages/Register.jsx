@@ -51,7 +51,7 @@ export default function Register() {
             {hiba && <div className="alert alert-danger text-center my-2">{hiba}</div>}
             {uzenet && <div className="alert alert-success text-center my-2">{uzenet}</div>} 
             <InputMezo label='E-mail' type='email' value={email} setValue={setEmail} placeholder='example@example.com' />
-            <InputMezo label='Felhasználónév' type='text' value={name} setValue={setName} placeholder='Jhon DOe' />
+            <InputMezo label='Felhasználónév' type='text' value={name} setValue={setName} placeholder='Jhon Doe' />
             <InputMezo label='Jelszó' type='password' value={pw} setValue={setPw} placeholder='*****' />
             <InputMezo label='Jelszó megerősítése' type='password' value={pwagain} setValue={setPwAgain} placeholder='*****' />
             </form>
