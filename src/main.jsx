@@ -5,13 +5,15 @@ import { Routes, Route} from 'react-router-dom'
 
 import { AuthProvider } from './context/AuthContext'
 
+import App from './pages/App.jsx'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home.jsx'
 import Admin from './pages/Admin'
+import Book from './pages/Book.jsx'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
-import App from './App.jsx'
+
 
 
 createRoot(document.getElementById('root')).render(
@@ -24,6 +26,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/register' element={<Register />} />
         <Route path='home' element={<Home />} />
         <Route path='admin' element={<Admin />} />
+        <Route path='books' element={<Book />} />
       </Routes>
     </BrowserRouter>
     </AuthProvider>

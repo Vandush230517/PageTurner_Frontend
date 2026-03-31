@@ -20,6 +20,7 @@ html, body {
 }
 
 .logo {
+  margin-top: 20px;
   width: 600px;
   height: auto;
 }
@@ -32,7 +33,6 @@ html, body {
 }
 
 .button {
-  margin-top: 50px; 
   padding: 20px 20px;
   border-radius: 5px;
   width: 250px;
@@ -45,10 +45,12 @@ transition: transform 0.2s ease, filter 0.2s ease;
 
 .login {
   background-color: #DEAA6E;
+  margin-top: 150px; 
 }
 
 .register {
  background-color: #AC7F5E;
+ margin-top: 50px; 
 }
 
 .login:hover {

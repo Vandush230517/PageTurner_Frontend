@@ -1,5 +1,5 @@
-import './css/App.css'
-import Logo from './assets/logo.png'
+import '../css/App.css'
+import Logo from '../assets/logo.png'
 import { useNavigate } from 'react-router-dom'
 
 
@@ -15,7 +15,7 @@ function App() {
           
               <div className="form-container">
 
-              <img src={Logo} alt="Logo" className="logo" />
+              <img src={Logo} alt="Logo" className="logo"/>
               <button className='button login'onClick={()=>navigate('/login')}>Bejelentkezés</button>
               <button className='button register' onClick={()=>navigate('/register')}>Regisztráció</button>
              

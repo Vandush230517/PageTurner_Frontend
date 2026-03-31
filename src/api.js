@@ -1,12 +1,12 @@
 const BACKEND_URL = 'http://localhost:3000/users'
 
-export async function register(email, username, password){
+export async function register(username, password, email){
     const res = await fetch(`${BACKEND_URL}/register`, {
         method: 'POST',
         headers:{
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, username, password })
+        body: JSON.stringify({username, password, email})
     })
     //console.log(res);
 

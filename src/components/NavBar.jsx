@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Gomb from "./Gomb";
 import Logo from '../assets/logo.png'
 
-export default function NavBar({ user, onLogout }) {
+export default function NavBar({ user, onLogout, onBooks }) {
   const isLoggedIn = !!user
   const isAdmin = user?.role === 'admin'
 
@@ -22,7 +22,7 @@ export default function NavBar({ user, onLogout }) {
             <Link to='/profile' className='px-3 py-1 text-decoration-none rounded text-dark fs-5 mt-2'>Fiókom</Link>
 
             {isAdmin && <Link to='/admin' className='px-3 py-1 text-decoration-none rounded text-dark fs-5 mt-2'>Admin panel</Link>}
-
+            <Gomb szin='btn btn-dark px-4 mb-4' onClick={onBooks} text='Összes könyv' />
             <Gomb szin='btn btn-dark px-4 mb-4' onClick={onLogout} text='Kijelentkezés' />
           </>
         ) : (

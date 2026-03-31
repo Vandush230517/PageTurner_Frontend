@@ -62,7 +62,7 @@ export default function Login() {
           </div>
           <div className="text-center mt-3">
                 
-                <Link to='/home'className="text-dark text-decoration-none">Vissza a fooldalra</Link>
+                <Link to='/home'className="text-dark text-decoration-none">Vissza a főoldalra</Link>
             
             </div>
             <div className="text-center mt-2">
