@@ -1,4 +1,5 @@
 const BACKEND_URL = 'http://localhost:3000/users'
+const BACKEND_URL_ADMIN = 'http://localhost:3000/admin'
 
 export async function register(username, password, email){
     const res = await fetch(`${BACKEND_URL}/register`, {
@@ -64,7 +65,7 @@ export async function logout() {
 }
 
 export async function getAllUsers() {
-    const res = await fetch(`${BACKEND_URL}/admin/allUser`, {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/allUser`, {
         method: 'GET',
         credentials: 'include'
     })
