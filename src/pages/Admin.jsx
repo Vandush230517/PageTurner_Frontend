@@ -41,12 +41,14 @@ export default function Admin() {
 
     
 
-    return (
+   return (
+    <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh'}}>
+        <NavBar user={user} onLogout={onLogout}/>
         <div className="container py-5">
-             <NavBar user={user} onLogout={onLogout}/>
-            <h1>Admin panel</h1>
-           
-             <Table allUsers={allUsers}/>
+           <h1>Admin panel</h1>
+            <Table allUsers={allUsers}/>
         </div>
-    )
+    </div>
+)
+
 }
