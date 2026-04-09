@@ -56,7 +56,7 @@ export default function Register() {
 
       <div className="left">
         <div className="container text-center">
-          <img src={Logo} alt="logo" />
+        <img src={Logo} alt="logo" style={{ maxWidth: '100%' }} />
           <h2>Regisztráció</h2>
 
           <form className='form'>

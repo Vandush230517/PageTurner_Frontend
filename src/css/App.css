@@ -64,3 +64,28 @@ transition: transform 0.2s ease, filter 0.2s ease;
   filter: brightness(0.9);
    transform: scale(1.05);
 }
+
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .side {
+    display: none;
+  }
+
+  .center {
+    width: 100%;
+    grid-column: 1 / -1;
+  }
+
+  .logo {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  .login {
+    margin-top: 60px;
+  }
+}

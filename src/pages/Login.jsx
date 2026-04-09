@@ -1,4 +1,4 @@
-import '../css/App.css'
+import '../css/Login.css'
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 import Logo from '../assets/logo.png'
@@ -50,7 +50,7 @@ export default function Login() {
             {hiba && <div className="alert alert-danger text-center my-2">{hiba}</div>}
             {uzenet && <div className="alert alert-success text-center my-2">{uzenet}</div>}
 
-            <img src={Logo} alt="" />
+           <img src={Logo} alt="" className="logo" style={{ maxWidth: '100%' }} />
             <InputMezo label='E-mail' type='email' value={email} setValue={setEmail} placeholder='example@example.com' />
 
             <InputMezo label='Jelszó' type='password' value={psw} setValue={setPsw} placeholder='*****' />
