@@ -77,3 +77,36 @@ export async function getAllUsers() {
 
     return await res.json()
 }
+
+
+export async function deleteUser(user_id) {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/deleteUser/${user_id}`, {
+        method: 'DELETE',
+        credentials: 'include'
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}
+
+export async function userEdit(user_id, username, email, role) {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/editUser/${user_id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({ username, email, role })
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}

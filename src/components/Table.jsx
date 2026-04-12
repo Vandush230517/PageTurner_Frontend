@@ -1,7 +1,7 @@
 import Gomb from "./Gomb"
 
-export default function Table({ allUsers }) {
-    return(
+export default function Table({ allUsers, onEdit, onDelete }) {
+    return (
         <table className="table table-striped table-hover table-dark rounded-2 overflow-hidden">
             <thead>
                 <tr className="text-center">
@@ -14,16 +14,16 @@ export default function Table({ allUsers }) {
             </thead>
             <tbody>
                 {allUsers?.map(user => (
-                     <tr className="text-center" key={user.user_id}>
-                     <td>{user.user_id}</td>
-                     <td>{user.username}</td>
-                     <td>{user.email}</td>
-                     <td>{user.role}</td>
-                     <td className="d-flex justify-content-evenly">
-                         <Gomb szin='btn btn-sm btn-warning px-4' text='Szerkesztés' onClick=''/>
-                         <Gomb szin='btn btn-sm btn-danger px-4' text='Törlés' onClick=''/>
-                     </td>
-                 </tr>
+                    <tr className="text-center" key={user.user_id}>
+                        <td>{user.user_id}</td>
+                        <td>{user.username}</td>
+                        <td>{user.email}</td>
+                        <td>{user.role}</td>
+                        <td className="d-flex justify-content-evenly">
+                            <Gomb szin='btn btn-sm btn-warning' text='Szerkesztés' onClick={() => onEdit(user)} />
+                            <Gomb szin='btn btn-sm btn-danger px-4' text='Törlés' onClick={() => onDelete(user)} />
+                        </td>
+                    </tr>
                 ))}
             </tbody>
         </table>
