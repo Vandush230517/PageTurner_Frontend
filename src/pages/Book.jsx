@@ -10,7 +10,7 @@ export default function Book() {
     const [user, setUser] = useState(null)
     const [errorUser, setErrorUser] = useState('')
 
-    const [randomBooks, setRandomBooks] = useState([]) 
+    const [randomBooksAll, setRandomBooksAll] = useState([])
 
     useEffect(() => {
         async function loadUser() {
@@ -27,10 +27,10 @@ export default function Book() {
 
         loadUser()
 
-        fetch("http://localhost:3000/book/randomBooks")
+        fetch("http://localhost:3000/book/randomBooksAll")
             .then(res => res.json())
-            .then(data => setRandomBooks(data))
-            .catch(() => setRandomBooks([]))
+            .then(data => setRandomBooksAll(data))
+            .catch(() => setRandomBooksAll([]))
     }, [])
 
     async function onLogout() {
@@ -40,32 +40,41 @@ export default function Book() {
         navigate('/')
     }
 
-    return(
-        <div style={{ backgroundColor: '#EFCEA8'}}>
+    return (
+        <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh' }}>
             <NavBar user={user} onLogout={onLogout} />
-            {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
-            <div
-                className="d-flex justify-content-center m-5 align-items-start"
-                style={{ gap: '400px' }}
-            >
-                {/* BAL OLDAL */}
+            {errorUser && (
+                <div className="alert alert-danger text-center my-2">
+                    {errorUser}
+                </div>
+            )}
+
+            <div className="container mt-4">
                 <div
                     className="p-3 rounded"
-                    style={{ backgroundColor: '#f0e5d8', width: 'fit-content' }}
+                    style={{ backgroundColor: '#f0e5d8' }}
                 >
-                    <h4 style={{ textAlign: 'left', marginBottom: '1rem', fontWeight: 'bold' }}>
+                    <h4 style={{ marginBottom: '1rem', fontWeight: 'bold' }}>
                         Könyvek:
                     </h4>
-                    {randomBooks.map((book, index) => (
-                        <Card
-                            key={`${book.book_id}-${index}`}
-                            image={`http://127.0.0.1:3000/${book.cover}`}
-                            title={book.title}
-                            author={book.author}
-                            ratings={book.ratings}
-                        />
-                    ))}
+
+
+                    <div className="row">
+                        {randomBooksAll.map((book, index) => (
+                            <div
+                                className="col-12 col-sm-6 col-md-4 col-lg-4 mb-4"
+                                key={`${book.book_id}-${index}`}
+                            >
+                                <Card
+                                    image={`http://127.0.0.1:3000/${book.cover}`}
+                                    title={book.title}
+                                    author={book.author}
+                                    ratings={book.ratings}
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

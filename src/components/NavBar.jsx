@@ -7,7 +7,7 @@ export default function NavBar({ user, onLogout, onBooks }) {
   const isAdmin = user?.role === 'admin'
   const { pathname } = useLocation()
 
- const navLinkClass = (path) =>
+  const navLinkClass = (path) =>
     `px-3 py-1 text-decoration-none rounded fs-5 ${pathname === path ? 'text-white fw-bold' : 'text-dark'}`
 
   return (
@@ -41,7 +41,8 @@ export default function NavBar({ user, onLogout, onBooks }) {
                   <Link to='/admin' className={navLinkClass('/admin')}>Admin panel</Link>
                 )}
 
-                <Gomb szin='btn btn-dark px-4' onClick={onBooks} text='Összes könyv' />
+
+                <Link to='/books' className={navLinkClass('/books')}>Összes könyv</Link>
                 <Gomb szin='btn btn-dark px-4' onClick={onLogout} text='Kijelentkezés' />
               </>
             ) : (

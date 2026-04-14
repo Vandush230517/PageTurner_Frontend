@@ -77,6 +77,7 @@ export default function Admin() {
             <NavBar user={user} onLogout={onLogout}/>
             <div className="container py-5">
                 <h1>Admin panel</h1>
+          
                 {errorAllUsers && <div className="alert alert-danger">{errorAllUsers}</div>}
 
                 <Table allUsers={allUsers} onEdit={handleEdit} onDelete={handleDelete}/>
