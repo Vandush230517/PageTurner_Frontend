@@ -1,6 +1,6 @@
-import '../css/App.css'
+import '../css/Login.css'
 import { useState } from 'react'
-import { Link,  useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from '../assets/logo.png'
 import InputMezo from '../components/InputMezo'
 import Gomb from '../components/Gomb'
@@ -9,7 +9,7 @@ import { login } from '../api'
 export default function Login() {
   const navigate = useNavigate()
 
-  const [email, setEmail] =useState('')
+  const [email, setEmail] = useState('')
   const [psw, setPsw] = useState('')
 
   const [hiba, setHiba] = useState('')
@@ -19,21 +19,21 @@ export default function Login() {
     setHiba('')
     setUzenet('')
 
-    if (!email || !psw ) {
+    if (!email || !psw) {
       return setHiba('Minden mezot tolts ki')
     }
     try {
-      const data = await login(email,psw)
+      const data = await login(email, psw)
       if (data.error) {
         setHiba(data.error)
         return
       }
       setUzenet(data.message)
       setTimeout(() => navigate('/home'), 1000)
-      
+
     }
     catch (err) {
-     // console.log(err);
+      // console.log(err);
       setHiba('Nem sikerult kapcsolodni a backendhez')
     }
   }
@@ -50,25 +50,25 @@ export default function Login() {
             {hiba && <div className="alert alert-danger text-center my-2">{hiba}</div>}
             {uzenet && <div className="alert alert-success text-center my-2">{uzenet}</div>}
 
-            <img src={Logo} alt="" />
+           <img src={Logo} alt="" className="logo" style={{ maxWidth: '100%' }} />
             <InputMezo label='E-mail' type='email' value={email} setValue={setEmail} placeholder='example@example.com' />
-            
+
             <InputMezo label='Jelszó' type='password' value={psw} setValue={setPsw} placeholder='*****' />
-            
+
             <div className="text-center mt-5">
               <Gomb szin='btn btn-dark px-4' onClick={onLog} text='Bejelentkezés' />
             </div>
 
           </div>
           <div className="text-center mt-3">
-                
-                <Link to='/home'className="text-dark text-decoration-none">Vissza a fooldalra</Link>
-            
-            </div>
-            <div className="text-center mt-2">
-                <Link to='/register' className="text-dark text-decoration-none">Még nincs fiókom</Link>
-            
-            </div>
+
+            <Link to='/home' className="text-dark text-decoration-none">Vissza a főoldalra</Link>
+
+          </div>
+          <div className="text-center mt-2">
+            <Link to='/register' className="text-dark text-decoration-none">Még nincs fiókom</Link>
+
+          </div>
 
 
 
