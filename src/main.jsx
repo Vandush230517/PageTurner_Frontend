@@ -5,7 +5,7 @@ import { Routes, Route} from 'react-router-dom'
 
 import { AuthProvider } from './context/AuthContext'
 
-import App from './pages/App.jsx'
+import App from './pages/Admin.jsx'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home.jsx'
@@ -13,6 +13,7 @@ import Admin from './pages/Admin'
 import Book from './pages/Book.jsx'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import MyBook from './pages/MyBooks.jsx'
 
 
 
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='home' element={<Home />} />
         <Route path='admin' element={<Admin />} />
         <Route path='books' element={<Book />} />
+        <Route path='mybooks' element={<MyBook/>} />
       </Routes>
     </BrowserRouter>
     </AuthProvider>
