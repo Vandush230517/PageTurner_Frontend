@@ -1,6 +1,6 @@
 export default function Card({ image, title, author, ratings }) {
     return (
-        <div className="card mb-3" style={{ maxWidth: 600 }}>
+        <div className="card mb-3" style={{ maxWidth: 500 }}>
             <div className="row g-0">
                 <div className="col-md-4">
                     <img src={image} className="img-fluid rounded-start" alt="kep" />
