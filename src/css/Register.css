@@ -4,6 +4,7 @@ html, body {
   height: 100%;
 }
 
+<<<<<<< HEAD
 .page {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -77,4 +78,31 @@ html, body {
   width: 100%;
   grid-column: 1 / -1;
 }
+=======
+  .btn {
+    margin-top: 40px;
+    width: 250px;
+    transition: transform 0.2s ease, filter 0.2s ease;
+  }
+  
+  .btn:hover {
+    filter: brightness(0.9);
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .side {
+    display: none;
+  }
+
+  .left {
+    width: 100%;
+    grid-column: 1 / -1;
+  }
+>>>>>>> 0ec060ce0b5655057f1e024ff09b731cc368faa7
 }
