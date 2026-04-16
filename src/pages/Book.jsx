@@ -50,7 +50,7 @@ export default function Book() {
                 className="d-flex justify-content-center m-5 align-items-start"
                 style={{ gap: '400px' }}
             >
-                {/* BAL OLDAL */}
+                
                 <div
                     className="p-3 rounded"
                     style={{ backgroundColor: '#f0e5d8', width: 'fit-content' }}
