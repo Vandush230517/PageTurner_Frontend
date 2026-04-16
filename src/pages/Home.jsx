@@ -53,15 +53,19 @@ export default function Home() {
     async function onBooks() {
         navigate('/books')
     }
+    async function myBooks() {
+        navigate('/mybooks')
+    }
 
     return (
         <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh'}}>
-            <NavBar user={user} onLogout={onLogout} onBooks={onBooks} />
+            <NavBar user={user} onLogout={onLogout} onBooks={onBooks} myBooks={myBooks} />
             {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
             <div className="container py-4">
                 <div className="row justify-content-between">
                     
+                    {/* BAL OLDAL */}
                     <div className="col-12 col-lg-5">
                         <div className="p-3 rounded" style={{ backgroundColor: '#f0e5d8' }}>
                             <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Könyvek:</h4>

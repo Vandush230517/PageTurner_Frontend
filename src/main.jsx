@@ -13,6 +13,7 @@ import Admin from './pages/Admin'
 import Book from './pages/Book.jsx'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
+import MyBook from './pages/MyBooks.jsx'
 
 
 
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='home' element={<Home />} />
         <Route path='admin' element={<Admin />} />
         <Route path='books' element={<Book />} />
+        <Route path='mybooks' element={<MyBook/>} />
       </Routes>
     </BrowserRouter>
     </AuthProvider>
