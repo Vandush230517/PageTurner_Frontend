@@ -2,12 +2,12 @@ import { Link, useLocation } from 'react-router-dom'
 import Gomb from "./Gomb";
 import Logo from '../assets/logo.png'
 
-export default function NavBar({ user, onLogout, onBooks }) {
+export default function NavBar({ user, onLogout, onBooks, myBooks }) {
   const isLoggedIn = !!user
   const isAdmin = user?.role === 'admin'
   const { pathname } = useLocation()
 
-  const navLinkClass = (path) =>
+ const navLinkClass = (path) =>
     `px-3 py-1 text-decoration-none rounded fs-5 ${pathname === path ? 'text-white fw-bold' : 'text-dark'}`
 
   return (
@@ -40,9 +40,8 @@ export default function NavBar({ user, onLogout, onBooks }) {
                 {isAdmin && (
                   <Link to='/admin' className={navLinkClass('/admin')}>Admin panel</Link>
                 )}
-
-
-                <Link to='/books' className={navLinkClass('/books')}>Összes könyv</Link>
+                <Gomb szin='btn btn-dark px-4' onClick={myBooks} text='Összes könyv' />
+                <Gomb szin='btn btn-dark px-4' onClick={onBooks} text='Összes könyv' />
                 <Gomb szin='btn btn-dark px-4' onClick={onLogout} text='Kijelentkezés' />
               </>
             ) : (
