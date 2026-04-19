@@ -2,7 +2,7 @@ import Gomb from "./Gomb"
 
 export default function Table({ allUsers, onEdit, onDelete }) {
     return (
-        <table className="table table-striped table-hover table-dark rounded-2 overflow-hidden">
+       <table className="table table-striped table-hover table-dark rounded-2 overflow-hidden mt-3">
             <thead>
                 <tr className="text-center">
                     <th>#</th>

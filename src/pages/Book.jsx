@@ -29,7 +29,10 @@ export default function Book() {
 
         fetch("http://localhost:3000/book/randomBooks")
             .then(res => res.json())
-            .then(data => setRandomBooks(data))
+            .then(data => {
+                console.log('randomBooks:', data)
+                setRandomBooks(data)
+            })
             .catch(() => setRandomBooks([]))
     }, [])
 
@@ -41,7 +44,7 @@ export default function Book() {
     }
 
     return(
-        <div style={{ backgroundColor: '#EFCEA8'}}>
+        <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh'}}>
             <NavBar user={user} onLogout={onLogout} />
             {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
@@ -49,7 +52,6 @@ export default function Book() {
                 className="d-flex justify-content-center m-5 align-items-start"
                 style={{ gap: '400px' }}
             >
-                {/* BAL OLDAL */}
                 <div
                     className="p-3 rounded"
                     style={{ backgroundColor: '#f0e5d8', width: 'fit-content' }}
@@ -60,6 +62,7 @@ export default function Book() {
                     {randomBooks.map((book, index) => (
                         <Card
                             key={`${book.book_id}-${index}`}
+                            book_id={book.book_id}
                             image={`http://127.0.0.1:3000/${book.cover}`}
                             title={book.title}
                             author={book.author}

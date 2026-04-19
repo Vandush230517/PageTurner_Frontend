@@ -60,8 +60,9 @@ export async function logout() {
     if (!res.ok) {
         const data = await res.json()
         return { error: data?.error }
-   }
+    }
 
+    return {}
 }
 
 export async function getAllUsers() {
@@ -80,7 +81,7 @@ export async function getAllUsers() {
 
 
 export async function deleteUser(user_id) {
-    const res = await fetch(`${BACKEND_URL_ADMIN}/deleteUser/${user_id}`, {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/admin/delete/${user_id}`, {
         method: 'DELETE',
         credentials: 'include'
     })
@@ -94,13 +95,59 @@ export async function deleteUser(user_id) {
 }
 
 export async function userEdit(user_id, username, email, role) {
-    const res = await fetch(`${BACKEND_URL_ADMIN}/editUser/${user_id}`, {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/admin/edit/${user_id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         credentials: 'include',
         body: JSON.stringify({ username, email, role })
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}
+
+export async function getAllBooks() {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/allBooks`, {
+        method: 'GET',
+        credentials: 'include'
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}
+
+export async function deleteBook(book_id) {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/admin/book/delete/${book_id}`, {
+        method: 'DELETE',
+        credentials: 'include'
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}
+
+export async function bookEdit(book_id, title, author, categories_id, description) {
+    const res = await fetch(`${BACKEND_URL_ADMIN}/admin/book/edit/${book_id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        credentials: 'include',
+        body: JSON.stringify({ title, author, categories_id, description })
     })
 
     if (!res.ok) {

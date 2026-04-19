@@ -26,16 +26,16 @@ export function AuthProvider({ children }) {
         loadUser()
     }, [])
 
-    async function onLogout() {
-        const data = await logout()
+async function onLogout() {
+    const data = await logout()
 
-        if (data.error) {
-            setErrorUser(data.error)
-            return
-        }
-
-        setUser(null)
+    if (data?.error) {
+        setErrorUser(data.error)
+        return
     }
+
+    setUser(null)
+}
 
     return (
         <AuthContext.Provider value={{ user, setUser, loading, errorUser, onLogout }}>

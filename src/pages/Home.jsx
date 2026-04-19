@@ -67,6 +67,7 @@ export default function Home() {
                             {randomBooks.map((book, index) => (
                                 <Card
                                     key={`${book.book_id}-${index}`}
+                                    book_id={book.book_id}
                                     image={`http://127.0.0.1:3000/${book.cover}`}
                                     title={book.title}
                                     author={book.author}
@@ -83,6 +84,7 @@ export default function Home() {
                             {userRatedBooks.map((book, index) => (
                                 <Card
                                     key={`${book.book_id}-${index}`}
+                                    book_id={book.book_id}
                                     image={`http://127.0.0.1:3000/${book.cover}`}
                                     title={book.title}
                                     author={book.author}
