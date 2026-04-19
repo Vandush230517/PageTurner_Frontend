@@ -15,9 +15,11 @@ function App() {
           
               <div className="form-container">
 
-              <img src={Logo} alt="Logo" className="logo"/>
-              <button className='button login'onClick={()=>navigate('/login')}>Bejelentkezés</button>
-              <button className='button register' onClick={()=>navigate('/register')}>Regisztráció</button>
+            <div className="container text-center">
+    <img src={Logo} alt="Logo" className="logo" style={{ maxWidth: '100%' }} />
+    <button className='button login' onClick={()=>navigate('/login')}>Bejelentkezés</button>
+    <button className='button register' onClick={()=>navigate('/register')}>Regisztráció</button>
+</div>
              
               </div>
 

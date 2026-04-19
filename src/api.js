@@ -157,3 +157,31 @@ export async function bookEdit(book_id, title, author, categories_id, descriptio
 
     return await res.json()
 }
+
+export async function createBook(formData) {
+    const res = await fetch(`http://localhost:3000/book/createBook`, {
+        method: 'POST',
+        credentials: 'include',
+        body: formData
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}
+
+export async function getBooksByCategory(categories_id) {
+    const res = await fetch(`http://localhost:3000/book/category/${categories_id}`, {
+        credentials: 'include'
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}

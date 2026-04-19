@@ -8,7 +8,7 @@ export default function Card({ image, title, author, ratings, book_id }) {
         <div className="card mb-3" style={{ maxWidth: 500, cursor: 'pointer' }} onClick={() => navigate(`/book/${book_id}`)}>
             <div className="row g-0">
                 <div className="col-md-4">
-                    <img src={image} className="img-fluid rounded-start" alt="kep" />
+                    <img src={image} className="img-fluid rounded-start" alt="kep" style={{ height: '200px', objectFit: 'cover' }} />
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
