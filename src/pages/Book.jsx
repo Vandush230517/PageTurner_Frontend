@@ -92,7 +92,7 @@ export default function Book() {
                     {randomBooks.map((book, index) => (
                         <Card
                             key={`${book.book_id}-${index}`}
-                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            image={`"https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                             title={book.title}
                             author={book.author}
                             ratings={book.ratings}
@@ -101,6 +101,5 @@ export default function Book() {
                 </div>
             </div>
         </div>
-    </div >
-)
+    )
 }
