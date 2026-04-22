@@ -20,7 +20,7 @@ export default function Login() {
     setUzenet('')
 
     if (!email || !psw) {
-      return setHiba('Minden mezot tolts ki')
+      return setHiba('Minden mezőt tölts ki')
     }
     try {
       const data = await login(email, psw)
