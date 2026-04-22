@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Card({ image, title, author, ratings, book_id }) {
     const navigate = useNavigate()
-    console.log('book_id:', book_id)
     
     return (
         <div className="card mb-3" style={{ maxWidth: 500, cursor: 'pointer' }} onClick={() => navigate(`/book/${book_id}`)}>

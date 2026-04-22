@@ -1,5 +1,5 @@
-const BACKEND_URL = 'http://localhost:3000/users'
-const BACKEND_URL_ADMIN = 'http://localhost:3000/admin'
+const BACKEND_URL = 'https://nodejs302.dszcbaross.edu.hu/users'
+const BACKEND_URL_ADMIN = 'https://nodejs302.dszcbaross.edu.hu/admin'
 
 export async function register(username, password, email){
     const res = await fetch(`${BACKEND_URL}/register`, {
@@ -159,7 +159,7 @@ export async function bookEdit(book_id, title, author, categories_id, descriptio
 }
 
 export async function createBook(formData) {
-    const res = await fetch(`http://localhost:3000/book/createBook`, {
+    const res = await fetch(`https://nodejs302.dszcbaross.edu.hu/book/createBook`, {
         method: 'POST',
         credentials: 'include',
         body: formData
@@ -174,7 +174,7 @@ export async function createBook(formData) {
 }
 
 export async function getBooksByCategory(categories_id) {
-    const res = await fetch(`http://localhost:3000/book/category/${categories_id}`, {
+    const res = await fetch(`https://nodejs302.dszcbaross.edu.hu/book/category/${categories_id}`, {
         credentials: 'include'
     })
 
