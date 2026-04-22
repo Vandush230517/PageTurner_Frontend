@@ -1,0 +1,91 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+.page {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  height: 100vh;
+}
+
+.side {
+  background-color: #AC703B;
+}
+
+.center {
+  background-color: #EFCEA8;
+}
+
+.logo {
+  margin-top: 20px;
+  width: 600px;
+  height: auto;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.button {
+  padding: 20px 20px;
+  border-radius: 5px;
+  width: 250px;
+  font-size: 16px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.login {
+  background-color: #DEAA6E;
+  margin-top: 150px; 
+}
+
+.register {
+ background-color: #AC7F5E;
+ margin-top: 50px; 
+}
+
+.login:hover {
+  background-color: #DEAA6E;
+   filter: brightness(0.9);
+    transform: scale(1.05);
+}
+
+.register:hover {
+ background-color: #AC7F5E;
+  filter: brightness(0.9);
+   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .page {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .side {
+    display: none;
+  }
+
+  .center {
+    width: 100%;
+    grid-column: 1 / -1;
+  }
+
+  .logo {
+    width: 90%;
+    margin-top: 40px;
+  }
+
+  .login {
+    margin-top: 60px;
+  }
+}
