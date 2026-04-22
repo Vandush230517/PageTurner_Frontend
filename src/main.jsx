@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import {BrowserRouter} from 'react-router-dom'
-import { Routes, Route} from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 
 import { AuthProvider } from './context/AuthContext'
 
@@ -11,6 +11,7 @@ import Register from './pages/Register'
 import Home from './pages/Home.jsx'
 import Admin from './pages/Admin'
 import Book from './pages/Book.jsx'
+import BookDetail from './pages/BookDetail'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import MyBook from './pages/MyBooks.jsx'
@@ -28,7 +29,6 @@ createRoot(document.getElementById('root')).render(
         <Route path='home' element={<Home />} />
         <Route path='admin' element={<Admin />} />
         <Route path='books' element={<Book />} />
-        <Route path='mybooks' element={<MyBook/>} />
       </Routes>
     </BrowserRouter>
     </AuthProvider>
