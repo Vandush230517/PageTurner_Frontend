@@ -24,7 +24,7 @@ export default function Home() {
                 setUser(data)
                 setErrorUser('')
 
-                fetch("http://localhost:3000/book/userRatedBooks", {
+                fetch("https://nodejs302.dszcbaross.edu.hu/book/userRatedBooks", {
                     credentials: 'include'
                 })
                 .then(res => res.ok ? res.json() : [])
@@ -35,7 +35,7 @@ export default function Home() {
 
         loadUser()
 
-        fetch("http://localhost:3000/book/randomBooks")
+        fetch("https://nodejs302.dszcbaross.edu.hu/book/randomBooks")
             .then(res => res.json())
             .then(data => setRandomBooks(data))
             .catch(() => setRandomBooks([]))
@@ -68,7 +68,7 @@ export default function Home() {
                                 <Card
                                     key={`${book.book_id}-${index}`}
                                     book_id={book.book_id}
-                                    image={`http://127.0.0.1:3000/${book.cover}`}
+                                    image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                                     title={book.title}
                                     author={book.author}
                                     ratings={book.ratings}
@@ -85,7 +85,7 @@ export default function Home() {
                                 <Card
                                     key={`${book.book_id}-${index}`}
                                     book_id={book.book_id}
-                                    image={`http://127.0.0.1:3000/${book.cover}`}
+                                    image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                                     title={book.title}
                                     author={book.author}
                                     ratings={book.ratings}

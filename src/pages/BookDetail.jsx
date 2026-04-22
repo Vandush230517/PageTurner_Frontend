@@ -23,7 +23,7 @@ export default function BookDetail() {
         }
 
         async function loadBook() {
-            const res = await fetch(`http://localhost:3000/book/getBook/${id}`, {
+            const res = await fetch(`https://nodejs302.dszcbaross.edu.hu/book/getBook/${id}`, {
                 credentials: 'include'
             })
             const data = await res.json()
@@ -65,7 +65,7 @@ export default function BookDetail() {
                         {/* BAL OLDAL - kép, cím, szerző, értékelés */}
                         <div className="col-12 col-md-4">
                             <img
-                                src={`http://127.0.0.1:3000/${book.cover}`}
+                                src={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                                 alt={book.title}
                                 className="img-fluid rounded mb-3"
                             />

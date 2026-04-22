@@ -40,7 +40,7 @@ export default function Book() {
     }, [])
 
     async function loadBooks() {
-        const res = await fetch("http://localhost:3000/book/randomBooks")
+        const res = await fetch("https://nodejs302.dszcbaross.edu.hu/book/randomBooks")
         const data = await res.json()
         setRandomBooks(data)
     }
@@ -94,7 +94,7 @@ return(
                         <div className="col-12 col-md-6 col-lg-4" key={`${book.book_id}-${index}`}>
                             <Card
                                 book_id={book.book_id}
-                                image={`http://127.0.0.1:3000/${book.cover}`}
+                                image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                                 title={book.title}
                                 author={book.author}
                                 ratings={book.ratings}
