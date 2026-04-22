@@ -65,8 +65,8 @@ export default function Book() {
         navigate('/')
     }
 
-    return(
-        <div style={{ backgroundColor: '#EFCEA8'}}>
+    return (
+        <div style={{ backgroundColor: '#EFCEA8' }}>
             <NavBar user={user} onLogout={onLogout} />
             {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
@@ -83,7 +83,7 @@ export default function Book() {
                     {categories.map(cat => (
                         <option key={cat.id} value={cat.id}>{cat.name}</option>
                     ))}
-                </select>
+                </div>
             </div>
 
             {/* fehér doboz */}
@@ -101,6 +101,6 @@ export default function Book() {
                 </div>
             </div>
         </div>
-    </div>
+    </div >
 )
 }

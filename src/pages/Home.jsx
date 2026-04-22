@@ -21,7 +21,6 @@ export default function Admin() {
     const [role, setRole] = useState('')
 
     useEffect(() => {
-<<<<<<< HEAD
         async function loadUser() {
             const data = await whoAmI()
 
@@ -35,9 +34,9 @@ export default function Admin() {
                 fetch("https://nodejs302.dszcbaross.edu.hu/book/userRatedBooks", {
                     credentials: 'include'
                 })
-                .then(res => res.ok ? res.json() : [])
-                .then(data => setUserRatedBooks(data))
-                .catch(() => setUserRatedBooks([]))
+                    .then(res => res.ok ? res.json() : [])
+                    .then(data => setUserRatedBooks(data))
+                    .catch(() => setUserRatedBooks([]))
             }
         }
 
@@ -47,14 +46,12 @@ export default function Admin() {
             .then(res => res.json())
             .then(data => setRandomBooks(data))
             .catch(() => setRandomBooks([]))
-=======
         async function loadUsers() {
             const data = await getAllUsers()
             if (!data.error) return setAllUsers(data)
             return setErrorAllUsers(data.error)
         }
         loadUsers()
->>>>>>> bf38e48db3ce671c3d6e50ac11dbb968acfe6897
     }, [])
 
     if (loading) {
@@ -100,78 +97,76 @@ export default function Admin() {
     }
 
     return (
-        <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh'}}>
-            <NavBar user={user} onLogout={onLogout}/>
+        <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh' }}>
+            <NavBar user={user} onLogout={onLogout} />
             <div className="container py-5">
                 <h1>Admin panel</h1>
                 {errorAllUsers && <div className="alert alert-danger">{errorAllUsers}</div>}
 
-<<<<<<< HEAD
-            <div className="container py-4">
-                <div className="row justify-content-between">
-                    
-                    {/* BAL OLDAL */}
-                    <div className="col-12 col-lg-5">
-                        <div className="p-3 rounded" style={{ backgroundColor: '#f0e5d8' }}>
-                            <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Könyvek:</h4>
-                            {randomBooks.map((book, index) => (
-                                <Card
-                                    key={`${book.book_id}-${index}`}
-                                    book_id={book.book_id}
-                                    image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
-                                    title={book.title}
-                                    author={book.author}
-                                    ratings={book.ratings}
-                                />
-                            ))}
+                <div className="container py-4">
+                    <div className="row justify-content-between">
+
+                        {/* BAL OLDAL */}
+                        <div className="col-12 col-lg-5">
+                            <div className="p-3 rounded" style={{ backgroundColor: '#f0e5d8' }}>
+                                <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Könyvek:</h4>
+                                {randomBooks.map((book, index) => (
+                                    <Card
+                                        key={`${book.book_id}-${index}`}
+                                        book_id={book.book_id}
+                                        image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
+                                        title={book.title}
+                                        author={book.author}
+                                        ratings={book.ratings}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                    </div>
 
-                    {/* JOBB OLDAL */}
-                    <div className="col-12 col-lg-5">
-                        <div className="p-3 rounded" style={{ backgroundColor: '#f0e5d8' }}>
-                            <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Értékelt könyveim:</h4>
-                            {userRatedBooks.map((book, index) => (
-                                <Card
-                                    key={`${book.book_id}-${index}`}
-                                    book_id={book.book_id}
-                                    image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
-                                    title={book.title}
-                                    author={book.author}
-                                    ratings={book.ratings}
-                                />
-                            ))}
+                        {/* JOBB OLDAL */}
+                        <div className="col-12 col-lg-5">
+                            <div className="p-3 rounded" style={{ backgroundColor: '#f0e5d8' }}>
+                                <h4 style={{ fontWeight: 'bold', marginBottom: '1rem' }}>Értékelt könyveim:</h4>
+                                {userRatedBooks.map((book, index) => (
+                                    <Card
+                                        key={`${book.book_id}-${index}`}
+                                        book_id={book.book_id}
+                                        image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
+                                        title={book.title}
+                                        author={book.author}
+                                        ratings={book.ratings}
+                                    />
+                                ))}
+                            </div>
                         </div>
+
                     </div>
+                    <Table allUsers={allUsers} onEdit={handleEdit} onDelete={handleDelete} />
 
-                </div>
-=======
-                <Table allUsers={allUsers} onEdit={handleEdit} onDelete={handleDelete}/>
+                    {showModal && selectedUser && (
+                        <div className='modal d-block' tabIndex='-1'>
+                            <div className="modal-dialog">
+                                <div className="modal-content p-3">
+                                    <h5>Szerkesztés</h5>
 
-                {showModal && selectedUser && (
-                    <div className='modal d-block' tabIndex='-1'>
-                        <div className="modal-dialog">
-                            <div className="modal-content p-3">
-                                <h5>Szerkesztés</h5>
+                                    <label className="form-label fw-bold">Username:</label>
+                                    <input type="text" className='form-control' defaultValue={selectedUser.username} placeholder='John Doe' onChange={(e) => setUsername(e.target.value)} />
 
-                                <label className="form-label fw-bold">Username:</label>
-                                <input type="text" className='form-control' defaultValue={selectedUser.username} placeholder='John Doe' onChange={(e) => setUsername(e.target.value)}/>
+                                    <label className="form-label fw-bold">Email:</label>
+                                    <input type="email" className='form-control' defaultValue={selectedUser.email} placeholder='example@example.com' onChange={(e) => setEmail(e.target.value)} />
 
-                                <label className="form-label fw-bold">Email:</label>
-                                <input type="email" className='form-control' defaultValue={selectedUser.email} placeholder='example@example.com' onChange={(e) => setEmail(e.target.value)}/>
+                                    <label className="form-label fw-bold">Role:</label>
+                                    <input type="text" className='form-control' defaultValue={selectedUser.role} placeholder='admin/user' onChange={(e) => setRole(e.target.value)} />
 
-                                <label className="form-label fw-bold">Role:</label>
-                                <input type="text" className='form-control' defaultValue={selectedUser.role} placeholder='admin/user' onChange={(e) => setRole(e.target.value)}/>
-
-                                <div className="d-flex justify-content-between mt-3">
-                                    <button type='button' className='btn btn-secondary' onClick={() => setShowModal(false)}>Bezárás</button>
-                                    <button type='button' className='btn btn-primary' onClick={() => editUser(selectedUser.user_id)}>Módosít</button>
+                                    <div className="d-flex justify-content-between mt-3">
+                                        <button type='button' className='btn btn-secondary' onClick={() => setShowModal(false)}>Bezárás</button>
+                                        <button type='button' className='btn btn-primary' onClick={() => editUser(selectedUser.user_id)}>Módosít</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                )}
->>>>>>> bf38e48db3ce671c3d6e50ac11dbb968acfe6897
+                    )}
+                </div>
             </div>
         </div>
     )
