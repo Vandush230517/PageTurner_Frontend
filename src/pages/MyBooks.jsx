@@ -28,7 +28,7 @@ export default function MyBook() {
 
         loadUser()
 
-        fetch("http://localhost:3000/mybooks")
+        fetch("https://nodejs302.dszcbaross.edu.hu/mybooks")
             .then(res => res.json())
             .then(data => setRandomBooks(data))
             .catch(() => setRandomBooks([]))
@@ -61,7 +61,7 @@ export default function MyBook() {
                     {randomBooks.map((book, index) => (
                         <Card
                             key={`${book.book_id}-${index}`}
-                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                             title={book.title}
                             author={book.author}
                             ratings={book.ratings}
@@ -71,7 +71,7 @@ export default function MyBook() {
                     {randomBooks.map((book, index) => (
                         <Card
                             key={`${book.book_id}-${index}`}
-                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                             title={book.title}
                             author={book.author}
                             ratings={book.ratings}
@@ -81,7 +81,7 @@ export default function MyBook() {
                     {randomBooks.map((book, index) => (
                         <Card
                             key={`${book.book_id}-${index}`}
-                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                             title={book.title}
                             author={book.author}
                             ratings={book.ratings}
@@ -91,7 +91,7 @@ export default function MyBook() {
                     {randomBooks.map((book, index) => (
                         <Card
                             key={`${book.book_id}-${index}`}
-                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                             title={book.title}
                             author={book.author}
                             ratings={book.ratings}
@@ -101,7 +101,7 @@ export default function MyBook() {
                     {randomBooks.map((book, index) => (
                         <Card
                             key={`${book.book_id}-${index}`}
-                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                             title={book.title}
                             author={book.author}
                             ratings={book.ratings}

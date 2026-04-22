@@ -10,6 +10,7 @@ export function AuthProvider({ children }) {
 
     useEffect(() => {
         async function loadUser() {
+            //await new Promise(resolve => setTimeout(resolve, 5000))
             const data = await whoAmI()
 
             if (data.error) {

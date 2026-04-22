@@ -10,16 +10,4 @@ export default defineConfig({
       },
     }),
   ],
-  server: {
-    proxy: {
-      '/users': {
-        target: 'https://nodejs302.dszcbaross.edu.hu:23002',
-        changeOrigin: true
-      },
-      '/admin': {
-        target: 'https://nodejs302.dszcbaross.edu.hu:23002',
-        changeOrigin: true
-      }
-    }
-  }
 })
