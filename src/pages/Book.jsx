@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import NavBar from '../components/NavBar'
 import Card from '../components/Card'
-import { whoAmI, logout, getBooksByCategory } from '../api'
+import { whoAmI, logout } from '../api'
 
 export default function Book() {
 
@@ -65,20 +65,19 @@ export default function Book() {
         navigate('/')
     }
 
-return(
-    <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh'}}>
-        <NavBar user={user} onLogout={onLogout} />
-        {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
+    return(
+        <div style={{ backgroundColor: '#EFCEA8'}}>
+            <NavBar user={user} onLogout={onLogout} />
+            {errorUser && <div className="alert alert-danger text-center my-2">{errorUser}</div>}
 
-        <div className="container py-5">
-            {/* kategória választó */}
-            <div className="d-flex align-items-center mb-4 gap-3">
-                <h4 style={{ fontWeight: 'bold', margin: 0 }}>Könyvek:</h4>
-                <select
-                    className="form-select"
-                    style={{ width: 'auto' }}
-                    value={selectedCategory}
-                    onChange={handleCategoryChange}
+            <div
+                className="d-flex justify-content-center m-5 align-items-start"
+                style={{ gap: '400px' }}
+            >
+                {/* BAL OLDAL */}
+                <div
+                    className="p-3 rounded"
+                    style={{ backgroundColor: '#f0e5d8', width: 'fit-content' }}
                 >
                     <option value=''>Összes kategória</option>
                     {categories.map(cat => (
@@ -91,15 +90,13 @@ return(
             <div className="p-4 rounded" style={{ backgroundColor: '#f0e5d8' }}>
                 <div className="row g-4">
                     {randomBooks.map((book, index) => (
-                        <div className="col-12 col-md-6 col-lg-4" key={`${book.book_id}-${index}`}>
-                            <Card
-                                book_id={book.book_id}
-                                image={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
-                                title={book.title}
-                                author={book.author}
-                                ratings={book.ratings}
-                            />
-                        </div>
+                        <Card
+                            key={`${book.book_id}-${index}`}
+                            image={`http://127.0.0.1:3000/${book.cover}`}
+                            title={book.title}
+                            author={book.author}
+                            ratings={book.ratings}
+                        />
                     ))}
                 </div>
             </div>

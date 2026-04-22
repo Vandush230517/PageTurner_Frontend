@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import Gomb from "./Gomb";
 import Logo from '../assets/logo.png'
 
-export default function NavBar({ user, onLogout, onBooks }) {
+export default function NavBar({ user, onLogout, onBooks, myBooks }) {
   const isLoggedIn = !!user
   const isAdmin = user?.role === 'admin'
   const { pathname } = useLocation()
@@ -40,7 +40,7 @@ export default function NavBar({ user, onLogout, onBooks }) {
                 {isAdmin && (
                   <Link to='/admin' className={navLinkClass('/admin')}>Admin panel</Link>
                 )}
-
+                <Gomb szin='btn btn-dark px-4' onClick={myBooks} text='Összes könyv' />
                 <Gomb szin='btn btn-dark px-4' onClick={onBooks} text='Összes könyv' />
                 <Gomb szin='btn btn-dark px-4' onClick={onLogout} text='Kijelentkezés' />
               </>
