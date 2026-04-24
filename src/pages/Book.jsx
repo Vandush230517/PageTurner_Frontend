@@ -40,7 +40,7 @@ export default function Book() {
     }, [])
 
     async function loadBooks() {
-        const res = await fetch("https://nodejs302.dszcbaross.edu.hu/book/randomBooks")
+        const res = await fetch("https://nodejs302.dszcbaross.edu.hu/book/randomBooksAll")
         const data = await res.json()
         setRandomBooks(data)
     }
