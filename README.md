@@ -12,9 +12,9 @@
 - [Projekt struktúra](#-projekt-struktúra)
 - [Telepítés és futtatás](#t-elepítés-és-futtatás)
 - [Oldalak](#-oldalak)
-- [Komponensek](#k-omponensek)
+- [Komponensek](#-komponensek)
 - [API hívások](#-api-hívások)
-- [Reszponzivitás](#r-eszponzivitás)
+- [Reszponzivitás](#-reszponzivitás)
 
 ---
 
