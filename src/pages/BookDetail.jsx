@@ -62,7 +62,7 @@ export default function BookDetail() {
                 <div className="p-4 rounded" style={{ backgroundColor: '#f0e5d8' }}>
                     <div className="row g-4">
                         
-                        {/* BAL OLDAL - kép, cím, szerző, értékelés */}
+                        {/* BAL OLDAL  */}
                         <div className="col-12 col-md-4">
                             <img
                                 src={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
@@ -76,7 +76,7 @@ export default function BookDetail() {
                             </div>
                         </div>
 
-                        {/* JOBB OLDAL - leírás */}
+                        {/* JOBB OLDAL  */}
                         <div className="col-12 col-md-8">
                             <p style={{ fontSize: '1.1rem', lineHeight: '1.8' }}>{book.description}</p>
                         </div>
