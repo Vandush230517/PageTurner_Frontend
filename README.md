@@ -6,15 +6,15 @@
 
 ## 📋 Tartalomjegyzék
 
-- [A projektről](#a-projektről)
-- [Főbb funkciók](#főbb-funkciók)
-- [Technológiai stack](#technológiai-stack)
-- [Projekt struktúra](#projekt-struktúra)
-- [Telepítés és futtatás](#telepítés-és-futtatás)
-- [Oldalak](#oldalak)
-- [Komponensek](#komponensek)
-- [API hívások](#api-hívások)
-- [Reszponzivitás](#reszponzivitás)
+- [A projektről](#-a-projektről)
+- [Főbb funkciók](#-főbb-funkciók)
+- [Technológiai stack](#-technológiai-stack)
+- [Projekt struktúra](#-projekt-struktúra)
+- [Telepítés és futtatás](#-telepítés-és-futtatás)
+- [Oldalak](#-oldalak)
+- [Komponensek](#-komponensek)
+- [API hívások](#-api-hívások)
+- [Reszponzivitás](#-reszponzivitás)
 
 ---
 
