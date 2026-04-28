@@ -11,6 +11,9 @@ export default function BookDetail() {
     const [errorUser, setErrorUser] = useState('')
     const [book, setBook] = useState(null)
 
+    const [showRatingModal, setShowRatingModal] = useState(false)
+    const [selectedRating, setSelectedRating] = useState(0)
+
     useEffect(() => {
         async function loadUser() {
             const data = await whoAmI()
@@ -46,7 +49,11 @@ export default function BookDetail() {
         navigate('/')
     }
 
-    async function handleRating(value) {
+    async function submitRating() {
+        if (!selectedRating) {
+            return alert('Válassz értékelést!')
+        }
+
         try {
             const res = await fetch(
                 `https://nodejs302.dszcbaross.edu.hu/book/rating/${id}`,
@@ -56,7 +63,7 @@ export default function BookDetail() {
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ rating: value })
+                    body: JSON.stringify({ rating: selectedRating })
                 }
             )
 
@@ -66,16 +73,19 @@ export default function BookDetail() {
                 return alert(data.error)
             }
 
-            alert('Értékelés elküldve!')
+            alert('Sikeres értékelés!')
 
             setBook(prev => ({
                 ...prev,
                 ratings: data.ratings ?? prev.ratings
             }))
 
+            setShowRatingModal(false)
+            setSelectedRating(0)
+
         } catch (err) {
             console.error(err)
-            alert('Hiba történt értékelés közben')
+            alert('Hiba történt')
         }
     }
 
@@ -92,7 +102,7 @@ export default function BookDetail() {
     return (
         <div style={{ backgroundColor: '#EFCEA8', minHeight: '100vh' }}>
             <NavBar user={user} onLogout={onLogout} />
-            
+
             {errorUser && (
                 <div className="alert alert-danger text-center my-2">
                     {errorUser}
@@ -100,6 +110,7 @@ export default function BookDetail() {
             )}
 
             <div className="container py-5">
+
                 <button
                     className="btn btn-dark mb-4"
                     onClick={() => navigate(-1)}
@@ -112,6 +123,7 @@ export default function BookDetail() {
 
                         {/* BAL OLDAL */}
                         <div className="col-12 col-md-4">
+
                             <img
                                 src={`https://nodejs302.dszcbaross.edu.hu/${book.cover}`}
                                 alt={book.title}
@@ -127,22 +139,15 @@ export default function BookDetail() {
                                 </span>
                             </div>
 
-                            {/* RATING */}
                             {user && (
-                                <div>
-                                    <h6 className="mb-2">Értékelés:</h6>
-
-                                    {[1, 2, 3, 4, 5].map(num => (
-                                        <button
-                                            key={num}
-                                            className="btn btn-outline-warning me-2 mb-2"
-                                            onClick={() => handleRating(num)}
-                                        >
-                                            ⭐ {num}
-                                        </button>
-                                    ))}
-                                </div>
+                                <button
+                                    className="btn btn-warning"
+                                    onClick={() => setShowRatingModal(true)}
+                                >
+                                    ⭐ Értékelés
+                                </button>
                             )}
+
                         </div>
 
                         {/* JOBB OLDAL */}
@@ -155,6 +160,57 @@ export default function BookDetail() {
                     </div>
                 </div>
             </div>
+
+            {/* RATING */}
+            {showRatingModal && (
+                <div className='modal d-block' tabIndex='-1'>
+                    <div className="modal-dialog">
+                        <div className="modal-content p-3">
+
+                            <h5>Könyv értékelése</h5>
+
+                            <label className="form-label fw-bold">
+                                Válassz értéket (1–5):
+                            </label>
+
+                            <select
+                                className='form-select'
+                                value={selectedRating}
+                                onChange={(e) => setSelectedRating(Number(e.target.value))}
+                            >
+                                <option value={0}>Válassz...</option>
+                                <option value={1}>⭐ 1</option>
+                                <option value={2}>⭐ 2</option>
+                                <option value={3}>⭐ 3</option>
+                                <option value={4}>⭐ 4</option>
+                                <option value={5}>⭐ 5</option>
+                            </select>
+
+                            <div className="d-flex justify-content-between mt-3">
+
+                                <button
+                                    type='button'
+                                    className='btn btn-secondary'
+                                    onClick={() => setShowRatingModal(false)}
+                                >
+                                    Bezárás
+                                </button>
+
+                                <button
+                                    type='button'
+                                    className='btn btn-warning'
+                                    onClick={submitRating}
+                                >
+                                    Küldés
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            )}
+
         </div>
     )
 }
