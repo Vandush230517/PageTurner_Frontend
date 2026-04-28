@@ -23,7 +23,7 @@ export default function Book() {
         { id: 7, name: 'Krimi' },
         { id: 8, name: 'Ifjúsági' },
     ]
-
+    
     useEffect(() => {
         async function loadUser() {
             const data = await whoAmI()
