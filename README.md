@@ -28,18 +28,6 @@ A PageTurner egy könyvajánló webalkalmazás frontendja. Az alkalmazás lehet�
 👉 [Figma terv megtekintése](https://www.figma.com/design/l8HCMqhnD0AVO6jxKlsFKq/Untitled?node-id=0-1&p=f&t=l2PVsy2Zp7nOzW7F-0)
 
 
-## 📚 Könyvek böngészése
-![Books page](./gitPictures/books.png)
-
-## 📄 Könyv részletek
-![Book detail](./gitPictures/bookdetail.png)
-
-## 👤 Profil
-![Profile](./gitPictures/profile.png)
-
-## 🛡️ Admin panel
-![Admin](./gitPictures/admin.png)
----
 
 ## ✨ Főbb funkciók
 
