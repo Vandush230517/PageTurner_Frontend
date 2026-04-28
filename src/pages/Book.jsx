@@ -16,12 +16,13 @@ export default function Book() {
     const categories = [
         { id: 1, name: 'Sci-Fi' },
         { id: 2, name: 'Fantasy' },
-        { id: 3, name: 'Thriller' },
-        { id: 4, name: 'Romantikus' },
-        { id: 5, name: 'Horror' },
-        { id: 6, name: 'Történelmi' },
-        { id: 7, name: 'Krimi' },
-        { id: 8, name: 'Ifjúsági' },
+        { id: 3, name: 'Disztópia' },
+        { id: 4, name: 'Thriller' },
+        { id: 5, name: 'Romantikus' },
+        { id: 6, name: 'Horror' },
+        { id: 7, name: 'Történelmi' },
+        { id: 8, name: 'Krimi' },
+        { id: 9, name: 'Ifjúsági' },
     ]
 
     useEffect(() => {
