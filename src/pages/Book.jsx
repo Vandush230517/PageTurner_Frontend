@@ -16,7 +16,7 @@ export default function Book() {
     const categories = [
         { id: 1, name: 'Sci-Fi' },
         { id: 2, name: 'Fantasy' },
-        { id: 3, name: 'Disztópia' },
+        { id: 3, name: 'Thriller' },
         { id: 4, name: 'Romantikus' },
         { id: 5, name: 'Horror' },
         { id: 6, name: 'Történelmi' },
