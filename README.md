@@ -20,22 +20,47 @@
 
 ## 🎯 A projektről
 
+![Home page](./gitPictures/page.png)
+
 A PageTurner egy könyvajánló webalkalmazás frontendja. Az alkalmazás lehetővé teszi a felhasználóknak, hogy könyveket böngésszenek, értékeljenek, keressenek, és kezeljék saját profiljukat.
 
 👉 [Backend repo](https://github.com/bogzbogz/pageturner.git)
 👉 [Figma terv megtekintése](https://www.figma.com/design/l8HCMqhnD0AVO6jxKlsFKq/Untitled?node-id=0-1&p=f&t=l2PVsy2Zp7nOzW7F-0)
 
+
+## 📚 Könyvek böngészése
+![Books page](./gitPictures/books.png)
+
+## 📄 Könyv részletek
+![Book detail](./gitPictures/bookdetail.png)
+
+## 👤 Profil
+![Profile](./gitPictures/profile.png)
+
+## 🛡️ Admin panel
+![Admin](./gitPictures/admin.png)
 ---
 
 ## ✨ Főbb funkciók
 
 - 🔐 **Felhasználói hitelesítés** - Bejelentkezés és regisztráció
+
+![LogReg page](./gitPictures/logReg.png)
 - 📖 **Könyvböngészés** - Könyvek listázása, keresése, kategória szerinti szűrés
+
+![Books page](./gitPictures/books.png)
 - 📄 **Könyv részletek** - Részletes könyvoldalak leírással és értékeléssel
+
+![Book detail](./gitPictures/bookdetail.png)
 - 👤 **Profil kezelés** - Felhasználónév, email és jelszó módosítása
+
+![Profile](./gitPictures/profile.png)
 - 🛡️ **Admin panel** - Felhasználók és könyvek adminisztrálása pill navigációval
+
+![Admin](./gitPictures/admin.png)
 - 📱 **Reszponzív dizájn** - Hamburger menü, Bootstrap grid rendszer
 
+![Responsive](./gitPictures/responsive.png)
 ---
 
 ## 🛠️ Technológiai stack
@@ -181,3 +206,23 @@ Az alkalmazás reszponzív Bootstrap 5 és CSS media query-k kombinációjával:
 - **Könyv grid** — `col-12 col-md-6 col-lg-4`: telefonon 1, tableten 2, asztali gépen 3 oszlop
 - **Landing/Login/Register** — CSS grid `1fr 1fr 1fr`, mobilon `@media (max-width: 768px)` a barna sávok eltűnnek
 - **Admin panel** — Bootstrap táblázat automatikusan alkalmazkodik
+
+## 🚀 Jövőbeli tervek (Frontend)
+
+- 💬 **Komment rendszer UI implementálása**
+  - Könyvekhez kommentek megjelenítése és hozzáadása
+  - Kommentek törlése és szerkesztése felhasználói jogosultsággal
+
+- ❤️ **Kedvencek kezelése**
+  - Könyvek mentése kedvencek közé
+  - Külön „Kedvencek” oldal létrehozása (`/favorites`)
+
+- ⭐ **Értékelési rendszer fejlesztése**
+  - Csillagos értékelés vizuális megjelenítése
+  - Felhasználói értékelések szerkesztése és törlése UI-ból
+
+- 📊 **Felhasználói statisztikák**
+  - Elolvasott és értékelt könyvek megjelenítése a profil oldalon
+  - Egyszerű dashboard jellegű nézet kialakítása
+
+---
