@@ -105,6 +105,7 @@ pageturner-frontend/
 ---
 
 ![Figma](./gitPictures/figma.png)
+[Figma](https://www.figma.com/design/l8HCMqhnD0AVO6jxKlsFKq/Untitled?node-id=0-1&p=f)
 
 ---
 
