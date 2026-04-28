@@ -10,7 +10,7 @@
 - [Főbb funkciók](#-főbb-funkciók)
 - [Technológiai stack](#-technológiai-stack)
 - [Projekt struktúra](#-projekt-struktúra)
-- [Telepítés és futtatás](#t-elepítés-és-futtatás)
+- [Telepítés és futtatás](#-telepítés-és-futtatás)
 - [Oldalak](#-oldalak)
 - [Komponensek](#-komponensek)
 - [API hívások](#-api-hívások)
