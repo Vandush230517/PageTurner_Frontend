@@ -101,6 +101,13 @@ pageturner-frontend/
 
 ---
 
+## Figma terv
+---
+
+![Figma](./gitPictures/figma.png)
+
+---
+
 ## 🚀 Telepítés és futtatás
 
 ```bash
