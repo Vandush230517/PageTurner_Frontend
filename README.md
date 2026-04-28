@@ -1,18 +1,183 @@
-# React + Vite
+# 📚 PageTurner - Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-7952B3?style=flat&logo=bootstrap&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white)
 
-Currently, two official plugins are available:
+## 📋 Tartalomjegyzék
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [A projektről](#a-projektről)
+- [Főbb funkciók](#főbb-funkciók)
+- [Technológiai stack](#technológiai-stack)
+- [Projekt struktúra](#projekt-struktúra)
+- [Telepítés és futtatás](#telepítés-és-futtatás)
+- [Oldalak](#oldalak)
+- [Komponensek](#komponensek)
+- [API hívások](#api-hívások)
+- [Reszponzivitás](#reszponzivitás)
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🎯 A projektről
 
-Note: This will impact Vite dev & build performances.
+A PageTurner egy könyvajánló webalkalmazás frontendja. Az alkalmazás lehetővé teszi a felhasználóknak, hogy könyveket böngésszenek, értékeljenek, keressenek, és kezeljék saját profiljukat.
 
-## Expanding the ESLint configuration
+👉 [Backend repo](https://github.com/bogzbogz/pageturner.git)
+👉 [Figma terv megtekintése](https://www.figma.com/design/l8HCMqhnD0AVO6jxKlsFKq/Untitled?node-id=0-1&p=f&t=l2PVsy2Zp7nOzW7F-0)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Főbb funkciók
+
+- 🔐 **Felhasználói hitelesítés** - Bejelentkezés és regisztráció
+- 📖 **Könyvböngészés** - Könyvek listázása, keresése, kategória szerinti szűrés
+- 📄 **Könyv részletek** - Részletes könyvoldalak leírással és értékeléssel
+- 👤 **Profil kezelés** - Felhasználónév, email és jelszó módosítása
+- 🛡️ **Admin panel** - Felhasználók és könyvek adminisztrálása pill navigációval
+- 📱 **Reszponzív dizájn** - Hamburger menü, Bootstrap grid rendszer
+
+---
+
+## 🛠️ Technológiai stack
+
+| Technológia | Leírás |
+|-------------|--------|
+| React 18 | UI framework |
+| React Router v6 | Oldalak közötti navigáció |
+| Bootstrap 5 | CSS framework, reszponzivitás |
+| Vite | Build tool |
+| Context API | Globális state kezelés (AuthContext) |
+
+---
+
+## 📂 Projekt struktúra
+
+```
+pageturner-frontend/
+├── src/
+│   ├── assets/
+│   │   └── logo.png              # Alkalmazás logó
+│   ├── components/
+│   │   ├── NavBar.jsx            # Navigációs sáv
+│   │   ├── Card.jsx              # Könyv kártya
+│   │   ├── Table.jsx             # Felhasználó táblázat
+│   │   ├── BookTable.jsx         # Könyv táblázat
+│   │   ├── Gomb.jsx              # Újrafelhasználható gomb
+│   │   └── InputMezo.jsx         # Újrafelhasználható input
+│   ├── context/
+│   │   └── AuthContext.jsx       # Globális auth state
+│   ├── css/
+│   │   ├── App.css               # Landing oldal stílusok
+│   │   ├── Login.css             # Login oldal stílusok
+│   │   └── Register.css         # Register oldal stílusok
+│   ├── pages/
+│   │   ├── App.jsx               # Landing oldal
+│   │   ├── Login.jsx             # Bejelentkezés
+│   │   ├── Register.jsx          # Regisztráció
+│   │   ├── Home.jsx              # Főoldal
+│   │   ├── Book.jsx              # Összes könyv oldal
+│   │   ├── BookDetail.jsx        # Könyv részletek
+│   │   ├── Profile.jsx           # Profil oldal
+│   │   └── Admin.jsx             # Admin panel
+│   ├── api.js                    # Backend API hívások
+│   └── main.jsx                  # Belépési pont, routing
+├── index.html
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## 🚀 Telepítés és futtatás
+
+```bash
+# Repo klónozása
+git clone https://github.com/Vandush230517/PageTurner_Frontend.git
+
+# Mappába lépés
+cd PageTurner_Frontend
+
+# Függőségek telepítése
+npm install
+
+# Fejlesztői szerver indítása
+npm run dev
+```
+
+> ⚠️ A frontend futtatásához a backend szervernek is futnia kell!
+
+---
+
+## 📄 Oldalak
+
+| Oldal | Útvonal | Leírás | Védett |
+|-------|---------|--------|--------|
+| Landing | `/` | Bejelentkezés/Regisztráció gombok | ❌ |
+| Bejelentkezés | `/login` | Login form | ❌ |
+| Regisztráció | `/register` | Regisztrációs form | ❌ |
+| Főoldal | `/home` | Véletlenszerű és értékelt könyvek | ✅ |
+| Könyvek | `/books` | Összes könyv, keresés, szűrés | ✅ |
+| Könyv részlet | `/book/:id` | Könyv adatai és leírása | ✅ |
+| Profil | `/profile` | Felhasználói adatok és módosítás | ✅ |
+| Admin | `/admin` | Felhasználó és könyv kezelés | ✅ Admin |
+
+---
+
+## 🧩 Komponensek
+
+### `NavBar.jsx`
+- Hamburger menü mobilon (`navbar-expand-lg`)
+- Aktív oldal kiemelése (`useLocation` hook)
+- Admin panel link csak adminoknak
+
+### `Card.jsx`
+- Könyv megjelenítése (kép, cím, szerző, értékelés)
+- Kattintásra navigál a könyv részlet oldalra
+
+### `Table.jsx` / `BookTable.jsx`
+- Bootstrap táblázat felhasználók/könyvek listázásához
+- Szerkesztés és törlés gombok
+
+### `Gomb.jsx`
+- Újrafelhasználható gomb komponens
+- `szin`, `onClick`, `text` propok
+
+### `InputMezo.jsx`
+- Újrafelhasználható input mező
+- `label`, `type`, `value`, `setValue`, `placeholder` propok
+
+---
+
+## 🔗 API hívások
+
+Az összes backend kommunikáció az `api.js` fájlban van centralizálva:
+
+| Függvény | Metódus | Leírás |
+|----------|---------|--------|
+| `register` | POST | Regisztráció |
+| `login` | POST | Bejelentkezés |
+| `logout` | POST | Kijelentkezés |
+| `whoAmI` | GET | Bejelentkezett user adatai |
+| `getAllUsers` | GET | Összes felhasználó (admin) |
+| `getAllBooks` | GET | Összes könyv (admin) |
+| `deleteUser` | DELETE | Felhasználó törlése |
+| `userEdit` | PUT | Felhasználó szerkesztése |
+| `deleteBook` | DELETE | Könyv törlése |
+| `bookEdit` | PUT | Könyv szerkesztése |
+| `createBook` | POST | Könyv létrehozása |
+| `getBooksByCategory` | GET | Kategória szerinti szűrés |
+| `searchBooks` | GET | Könyv keresés |
+| `editUsername` | PUT | Felhasználónév módosítás |
+| `editEmail` | PUT | Email módosítás |
+| `editPassword` | PUT | Jelszó módosítás |
+
+---
+
+## 📱 Reszponzivitás
+
+Az alkalmazás reszponzív Bootstrap 5 és CSS media query-k kombinációjával:
+
+- **Navbar** — `navbar-expand-lg`: nagy képernyőn vízszintes menü, mobilon hamburger gomb
+- **Könyv grid** — `col-12 col-md-6 col-lg-4`: telefonon 1, tableten 2, asztali gépen 3 oszlop
+- **Landing/Login/Register** — CSS grid `1fr 1fr 1fr`, mobilon `@media (max-width: 768px)` a barna sávok eltűnnek
+- **Admin panel** — Bootstrap táblázat automatikusan alkalmazkodik

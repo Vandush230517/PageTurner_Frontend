@@ -2,10 +2,10 @@ import { useNavigate } from 'react-router-dom'
 
 export default function Card({ image, title, author, ratings, book_id }) {
     const navigate = useNavigate()
-    console.log('book_id:', book_id)
+
     
     return (
-        <div className="card mb-3" style={{ maxWidth: 500, cursor: 'pointer' }} onClick={() => navigate(`/book/${book_id}`)}>
+       <div className="card mb-3" style={{ minWidth: '300px', cursor: 'pointer' }} onClick={() => navigate(`/book/${book_id}`)}>
             <div className="row g-0">
                 <div className="col-md-4">
                     <img src={image} className="img-fluid rounded-start" alt="kep" style={{ height: '200px', objectFit: 'cover' }} />

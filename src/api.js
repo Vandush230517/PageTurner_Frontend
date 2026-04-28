@@ -185,3 +185,58 @@ export async function getBooksByCategory(categories_id) {
 
     return await res.json()
 }
+
+export async function searchBooks(query) {
+    const res = await fetch(`https://nodejs302.dszcbaross.edu.hu/book/search/${query}`, {
+        credentials: 'include'
+    })
+
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+
+    return await res.json()
+}
+
+export async function editUsername(username) {
+    const res = await fetch(`${BACKEND_URL}/editUsername`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ username })
+    })
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+    return await res.json()
+}
+
+export async function editEmail(email) {
+    const res = await fetch(`${BACKEND_URL}/editEmail`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ email })
+    })
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+    return await res.json()
+}
+
+export async function editPassword(currentPassword, newPassword) {
+    const res = await fetch(`${BACKEND_URL}/editPassword`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ currentPassword, newPassword })
+    })
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+    return await res.json()
+}
