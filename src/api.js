@@ -240,3 +240,29 @@ export async function editPassword(currentPassword, newPassword) {
     }
     return await res.json()
 }
+
+export async function addRating(book_id, rate) {
+    const res = await fetch(`https://nodejs302.dszcbaross.edu.hu/book/rating/${book_id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ rate })
+    })
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+    return await res.json()
+}
+
+export async function deleteRating(book_id) {
+    const res = await fetch(`https://nodejs302.dszcbaross.edu.hu/book/rating/${book_id}`, {
+        method: 'DELETE',
+        credentials: 'include'
+    })
+    if (!res.ok) {
+        const data = await res.json()
+        return { error: data?.error }
+    }
+    return await res.json()
+}
